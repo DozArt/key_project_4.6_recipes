@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'api_recipes',
+    'rest_framework',
 ]
 
 SITE_ID = 1
