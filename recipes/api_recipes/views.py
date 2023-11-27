@@ -1,3 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+from django.views.generic import ListView
+from .models import Category
+
+
+class CategoryList(ListView):
+    model = Category
+    ordering = 'name'
+    template_name = 'category.html'
+    context_object_name = 'category'
