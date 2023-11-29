@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'api_recipes',
     'rest_framework',
     'drf_yasg',
+    'corsheaders',
 ]
 
 SITE_ID = 1
@@ -50,16 +51,25 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+
 ]
 
 ROOT_URLCONF = 'recipes.urls'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://192.168.0.9:3000",  # Замените этот URL на ваш фронтенд
+    "http://localhost:3000",
+]
 
 TEMPLATES = [
     {
