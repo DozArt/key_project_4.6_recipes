@@ -3,17 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Categories from './pages/Categories';
 import RecipeList from './pages/RecipeList';
 import RecipeDetails from './pages/RecipeDetails'
 
 const router = createBrowserRouter([
   {
-    path: "/recipes/:id",
+    path: "/:id",
     element: <RecipeDetails />,
   },
   {
-    path: "/recipes",
+    path: "/",
     element: <RecipeList />,
   },
 ]);
@@ -21,7 +20,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Categories  />
+    <a href='/'>Главная</a>
     <RouterProvider router={router} />
   </>
 );

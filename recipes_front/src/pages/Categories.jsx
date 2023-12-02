@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import s from './Categories.module.css'
 
 
-function Item(arg){
-  const linc = '/recipes/?category_id='
+function Item(arg, select){
+
+  const linc = '/?category_id='
 
   return (
     <li key={arg.id}>
-      <a href={linc + arg.id}>
+      <a href={linc + arg.id} 
+         className={(Number(select.select) === arg.id) ? s.select : '' }>
         {arg.name}
         </a>
     </li>
   )
 }
 
-function Categories() {
+function Categories(select) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -39,7 +42,7 @@ function Categories() {
     <div className="Categories">
       <h1>Категории:</h1>
       <ul>
-        {categories.map(arg => (Item(arg)))}
+        {categories.map(arg => (Item(arg, select)))}
       </ul>
     </div>
   );

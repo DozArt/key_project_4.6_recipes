@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
+import Categories from './Categories';
 
 
 const Recipe = () => {
@@ -27,6 +28,8 @@ const Recipe = () => {
   console.log(recipe);
 
   return (
+    <>
+    <Categories />
     <div className="Recipes">
       <h1>Рецепты:</h1>
         Название: {recipe.title}<br /><br />
@@ -36,6 +39,7 @@ const Recipe = () => {
         Автор: {recipe.author?.username}<br /><br />
         Категория: {recipe.categories?.[0].name}
     </div>
+    </>
   );
 }
 

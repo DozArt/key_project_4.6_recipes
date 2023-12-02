@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import Categories from './Categories';
 
 
 function Item(arg){
-  const linc = '/recipes/'
+  const linc = '/'
   return (
     <li key={arg.id} >
       <a href={linc + arg.id} >
@@ -44,12 +45,15 @@ const Recipe = () => {
   console.log(recipes);
 
   return (
+    <>
+    <Categories select={category_id}/>
     <div className="Recipes">
-      <h1>Рецепты: {category_id}</h1>
+      <h1>Рецепты</h1>
         <ul>
           {recipes.map(arg => (Item(arg)))}
         </ul>
     </div>
+    </>
   );
 }
 
