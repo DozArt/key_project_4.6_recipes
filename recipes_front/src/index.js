@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Categories from './Categories';
-import Recipe from './Recipe';
-
+import Categories from './pages/Categories';
+import RecipeList from './pages/RecipeList';
+import RecipeDetails from './pages/RecipeDetails'
 
 const router = createBrowserRouter([
   {
-    path: "/categories/",
-    element: <Categories />,
+    path: "/recipes/:id",
+    element: <RecipeDetails />,
   },
   {
     path: "/recipes",
-    element: <Recipe />,
+    element: <RecipeList />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router} />
+  <>
+    <Categories  />
+    <RouterProvider router={router} />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
