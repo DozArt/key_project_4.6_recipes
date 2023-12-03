@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['id', 'name']
 
 
 class RecipeSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,4 +21,4 @@ class RecipeSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Recipe
-        fields = '__all__'
+        fields = ['id', 'title', 'description', 'ingredients', 'instructions', 'author', 'categories']
